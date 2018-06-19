@@ -4,6 +4,8 @@ php:
   - 7.1
   - 7.2
 
+script: find . -type f -name "*.php" -exec php -l {} \;
+
 matrix:
   fast_finish: true
 
