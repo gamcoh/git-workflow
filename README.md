@@ -69,3 +69,11 @@ La nomenclature de la branch doit être écrite de cette manière :
 
 Une fois le ticket términé, le commiter à l'aide de Commitizen sur cette nouvelle branch, puis faire une pull request sur la branch principal voulus.
 
+## Travis !
+Pour automatiser les push et pull requests, nous allons utiliser Travis qui, à chaque request va faire des test automatique pour verifier differents niveaux de code.
+
+### 1. Créer l'environement
+Pour commencer créer une nouvelle branch travis
+
+	git checkout -b travis
+
