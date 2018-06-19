@@ -44,3 +44,26 @@ Ce qui va afficher ceci
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 Pour utiliser Commitizen avec VS Code téléchargez cette extension : https://github.com/KnisterPeter/vscode-commitizen
+
+## Créer une méthode agile sur GITHUB pour travailler avec un système de ticket
+
+Une fois votre projet créer sur github aller dans la rubrique "Projects" et ajouter un nouveau projet.
+Il y a plusieurs choix de template le meilleur selon moi est "Automated kanban template". Il permet d'automatiser les colones de manière à ce que les issues se trouvent dans la colone TO DO par exemple.
+
+## Travailler sur un nouveau ticker
+### 1. Création du ticket
+Pour créer un ticket il suffit de créer un nouvel issue dans l'onglet ISSUES et y ajouter des options : 
+
+- Assigner un collaborateur pour qu'il travail dessus
+- Ajouter un titre (forcément 🤓)
+- Ajouter des labels (demande de features, fix, doc)
+- Lier à un projet
+
+Si vous avez bien configurer votre projet ce ticket s'ajoutera directement dans les TODO.
+
+Une fois la TODO créer, créer une nouvelle branch pour coder dessus.
+La nomenclature de la branch doit être écrite de cette manière :
+`<contexte>/<issueId>-<fonction>`, exemple : `feat/4-login`
+
+Une fois le ticket términé, le commiter à l'aide de Commitizen sur cette nouvelle branch, puis faire une pull request sur la branch principal voulus.
+
