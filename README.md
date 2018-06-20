@@ -81,4 +81,24 @@ Coder ce que vous avez à coder, ajouter des build dans le fichier `.travis.yml`
 
 Une fois tout ceci fait, retrouvez-vous sur github pour effectuer une pull request sur la branch principal de votre chois ce qui va enclencher travis.
 
+## PHPUnit (test unitaires pour PHP)
+### Test Driven Development (TDD)
+
+Un des meilleurs moyens de coder avec les testes unitaires est la convention "Test Driven Development".
+C'est à dire que les testes sont écris en premier et qu'il vont "driver" le développement future.
+C'est une bonne idée car on a souvent une idée de ce qu'on veut comme résultat mais pas tout de suite la méthodologie pour le coder, du coup, écrire les testes d'abord permet de se bases sur ce que l'ont veut pour ensuite commencer à développer.
+
+Ce pattern est appelé le "TDD Pattern", le voici :
+![TDD Pattern](https://user-images.githubusercontent.com/18115514/41646951-595489cc-7475-11e8-8460-efa8f1ec6dbc.png)
+
+### Installation
+
+Pour installer PHPUnit il faut avoir les extensions : 
+- DOM
+- JSON
+- PCRE
+- Reflection
+- SPL
+- XMLWriter
+- Xdebug
 
