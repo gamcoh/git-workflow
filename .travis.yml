@@ -1,0 +1,14 @@
+language: php
+
+php:
+  - 7.1
+  - 7.2
+
+script: php -l test.php
+
+matrix:
+  fast_finish: true
+
+notifications:
+  on_success: always
+  on_failure: always
