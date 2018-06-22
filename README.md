@@ -1,4 +1,4 @@
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Build Status](https://travis-ci.org/gamcoh/git-workflow.svg?branch=master)](https://travis-ci.org/gamcoh/git-workflow) [![Coverage Status](https://coveralls.io/repos/github/gamcoh/git-workflow/badge.svg?branch=master&service=github)](https://coveralls.io/github/gamcoh/git-workflow?branch=master)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Build Status](https://travis-ci.org/gamcoh/git-workflow.svg?branch=master)](https://travis-ci.org/gamcoh/git-workflow) [![Coverage Status](https://coveralls.io/repos/github/gamcoh/git-workflow/badge.svg?branch=master&service=github)](https://coveralls.io/github/gamcoh/git-workflow?branch=master) [![CodeFactor](https://www.codefactor.io/repository/github/gamcoh/git-workflow/badge)](https://www.codefactor.io/repository/github/gamcoh/git-workflow)
 
 # Documention
 
