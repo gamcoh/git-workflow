@@ -1,4 +1,4 @@
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Build Status](https://travis-ci.org/gamcoh/git-workflow.svg?branch=master)](https://travis-ci.org/gamcoh/git-workflow)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Build Status](https://travis-ci.org/gamcoh/git-workflow.svg?branch=master)](https://travis-ci.org/gamcoh/git-workflow) [![Coverage Status](https://coveralls.io/repos/github/gamcoh/git-workflow/badge.svg?branch=master)](https://coveralls.io/github/gamcoh/git-workflow?branch=master)
 
 # Documention
 
@@ -11,9 +11,9 @@ Les commit doivent être fait de manière conventionel
 
 	Référence/action sur un ticket définissant cette tâche
 
-La liste des type de tâche est : 
+Les types de tâches sont : 
 - fix : réparer un bug
-- feat : création d'une fonctionalitée
+- feat : création d'une fonctionalité
 - test : mise en place de test unitaire
 - docs : documention
 - style : les changements qui n'ont pas d'effet sur le code (éspaces, tabulations, etc)
@@ -27,7 +27,7 @@ La liste des type de tâche est :
 
 	npm install -g commitizen
 
-Installer sa convention préférer
+Installer sa convention préféré
 
 	npm install -g cz-conventional-changelog
 
@@ -49,10 +49,10 @@ Pour utiliser Commitizen avec VS Code téléchargez cette extension : https://gi
 
 ## Créer une méthode agile sur GITHUB pour travailler avec un système de ticket
 
-Une fois votre projet créer sur github aller dans la rubrique "Projects" et ajouter un nouveau projet.
+Une fois votre projet créer sur github aller dans la rubrique "Projects" et ajoutez un nouveau projet.
 Il y a plusieurs choix de template le meilleur selon moi est "Automated kanban template". Il permet d'automatiser les colones de manière à ce que les issues se trouvent dans la colone TO DO par exemple.
 
-## Travailler sur un nouveau ticker
+## Travailler sur un nouveau ticket
 ### 1. Création du ticket
 Pour créer un ticket il suffit de créer un nouvel issue dans l'onglet ISSUES et y ajouter des options : 
 
@@ -86,7 +86,7 @@ Une fois tout ceci fait, retrouvez-vous sur github pour effectuer une pull reque
 
 Un des meilleurs moyens de coder avec les testes unitaires est la convention "Test Driven Development".
 C'est à dire que les testes sont écris en premier et qu'il vont "driver" le développement future.
-C'est une bonne idée car on a souvent une idée de ce qu'on veut comme résultat mais pas tout de suite la méthodologie pour le coder, du coup, écrire les testes d'abord permet de se bases sur ce que l'ont veut pour ensuite commencer à développer.
+C'est une bonne idée car on a souvent une idée de ce qu'on veut comme résultat mais pas tout de suite la méthodologie pour le coder, du coup, écrire les testes d'abord permet de se baser sur ce que l'ont veut pour ensuite commencer à développer.
 
 Ce pattern est appelé le "TDD Pattern", le voici :
 ![TDD Pattern](https://user-images.githubusercontent.com/18115514/41646951-595489cc-7475-11e8-8460-efa8f1ec6dbc.png)
@@ -101,4 +101,35 @@ Pour installer PHPUnit il faut avoir les extensions :
 - SPL
 - XMLWriter
 - Xdebug
+
+Pour installer PHPUnit ajouter un composer.json comme celui de ce projet.
+Ensuite lancer la commande : `composer install`.
+
+Pour tester si tout c'est bien passé, lancer la commande : `vendor/bin/phpunit --version`.
+
+### Getting started
+Pour créer un premier test, il suffit de créer le dossier `tests` à la racine de notre projet puis utiliser la même architecture que notre application.
+Si j'ai une class ayant cette architecture : `src/lib/Model.class.php` alors dans mon dossier `tests` j'aurai `src/lib/ModelTest.class.php`.
+
+Pour regarder un exemple de test unitaire, ouvrez le fichier `tests/ReceiptTest.php`. À l'intérieur vous y trouverai les dépendances ansi que les tests PHP effectuer et la manière de les executer.
+
+Une fois que les tests ont été coder, il faut demander à PHPUnit de les lancer. Pour ce faire, utiliser votre terminal et lancer la commande : `vendor/bin/phpunit tests` où `tests` est le dossier où le code a été effectuer.
+Si nous voulons lancer des tests spécifique il suffit de rajouter l'option filter dans la commande : `vendor/bin/phpunit tests --filter=ReceiptTest::testTax`.
+De cette manière seulement la méthode `testTax` de la class `ReceiptTest` sera executé.
+
+Pour créer une architecture de tests plus propre, il est conseiller de créer un fichier `phpunit.xml` de cette façon, une fois la commande lancer seul les filtres demandés dans ce fichier seront lancer.
+Pour l'exemple regarder ce même fichier à la racine.
+
+### Utilisation avec IDE
+Pour utiliser PHPUnit avec VSCode il suffit de télécharger cette extension : https://github.com/elonmallin/vscode-phpunit
+Pour ceux qui travaillent sur Sublime, testez cette extension : https://github.com/stuartherbert/sublime-phpunit
+
+### Test Double
+## Mock
+Un Mock est un système de "test double" qui permet de modifier certaines méthodes avant d'en tester une. En effet, parfois certaines fonctions doivent être tester en modifier le retour d'autres méthodes.
+Si par exemple, je veux tester la méthode `update` de mon model principal mais que à l'interieur de celle-ci se trouve d'autres méthodes qui check la cohérence des champs de mon entitée (comme la date de création, email, etc), pour faire en sorte de ne pas avoir de failure de test lier à d'autre fonction, grace au Mock je vais dire que pour ce test, les methodes de check appeller dans `update` vont retourner automatiquement `true` de manière à ce que je teste que le retour de ma méthode `update`.
+Pour voir un exemple regarder dans le fichier `ReceiptTest.php` la méthode : `testPostTaxTotal`.
+
+### Ajouter le standard Gamzer au check travis
+### Ajouter les tests unitaires avec coveralls
 

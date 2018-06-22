@@ -4,7 +4,15 @@ php:
   - 7.1
   - 7.2
 
-script: php -l test.php
+before_install:
+  - composer require phpunit/phpunit:5.5.* satooshi/php-coveralls:dev-master
+  - composer install --dev
+
+script:
+  - ./vendor/bin/phpunit --coveralls-clover ./tests/logs/clover.xml
+
+after_script:
+  - php vendor/bin/coveralls -v
 
 matrix:
   fast_finish: true
