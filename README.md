@@ -132,5 +132,4 @@ Pour voir un exemple regarder dans le fichier `ReceiptTest.php` la méthode : `t
 
 ## Ajouter le standard Gamzer au check travis
 ## Ajouter les tests unitaires avec coveralls
-## Syntax-linter 
-
+## CodeFactor
