@@ -130,6 +130,7 @@ Un Mock est un système de "test double" qui permet de modifier certaines métho
 Si par exemple, je veux tester la méthode `update` de mon model principal mais que à l'interieur de celle-ci se trouve d'autres méthodes qui check la cohérence des champs de mon entitée (comme la date de création, email, etc), pour faire en sorte de ne pas avoir de failure de test lier à d'autre fonction, grace au Mock je vais dire que pour ce test, les methodes de check appeller dans `update` vont retourner automatiquement `true` de manière à ce que je teste que le retour de ma méthode `update`.
 Pour voir un exemple regarder dans le fichier `ReceiptTest.php` la méthode : `testPostTaxTotal`.
 
-### Ajouter le standard Gamzer au check travis
-### Ajouter les tests unitaires avec coveralls
+## Ajouter le standard Gamzer au check travis
+## Ajouter les tests unitaires avec coveralls
+## Syntax-linter 
 
