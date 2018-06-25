@@ -15,7 +15,7 @@ class Receipt
         return $sum;
     }
 
-    public function tax($amount, $tax) { 
+    public function tax($amount, $tax) {
         return $amount * $tax;
     }
 

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<ruleset name="Gamzer">
 	<description>The Gamzer Standard</description>
+
+	<exclude-pattern>./vendor</exclude-pattern>
+
 	<rule ref="Generic.Classes.DuplicateClassName"/>
 	<rule ref="Generic.CodeAnalysis.EmptyStatement"/>
 	<rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
