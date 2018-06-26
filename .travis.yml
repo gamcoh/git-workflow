@@ -6,6 +6,9 @@ php:
 before_install:
   - composer require php-coveralls/php-coveralls '~1.0'
   - composer install --dev
+  - git clone git@github.com:gamcoh/Gamzer-PHP-Standard.git ./vendor/squizlabs/php_codesniffer/src/Standards/
+  - mv ./vendor/squizlabs/php_codesniffer/src/Standards/Gamzer-PHP-Standard/Gamzer ./vendor/squizlabs/php_codesniffer/src/Standards/
+  - mv ./vendor/squizlabs/php_codesniffer/src/Standards/Gamzer-PHP-Standard/Gamzerpear ./vendor/squizlabs/php_codesniffer/src/Standards/
   - ./vendor/bin/phpcs --config-set installed_path ./vendor/squizlabs/php_codesniffer/src/Standards/
 
 script:
