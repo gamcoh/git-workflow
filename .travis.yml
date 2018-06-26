@@ -7,10 +7,7 @@ before_install:
   - composer require php-coveralls/php-coveralls '~1.0'
   - composer install --dev
   - cd ./vendor/squizlabs/php_codesniffer/src/Standards/ && git clone git@github.com:gamcoh/Gamzer-PHP-Standard.git
-  - mv ./Gamzer-PHP-Standard/Gamzer ./
-  - mv ./Gamzer-PHP-Standard/Gamzerpear ./
-  - cd ../../../../..
-  - ./vendor/bin/phpcs --config-set installed_path ./vendor/squizlabs/php_codesniffer/src/Standards/
+  - ./vendor/bin/phpcs --config-set installed_path ./vendor/squizlabs/php_codesniffer/src/Standards/,./vendor/squizlabs/php_codesniffer/src/Standards/Gamzer-PHP-Standard/Gamzer,./vendor/squizlabs/php_codesniffer/src/Standards/Gamzer-PHP-Standard/Gamzerpear
 
 script:
   - ./vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
