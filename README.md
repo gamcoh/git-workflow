@@ -133,3 +133,7 @@ Pour voir un exemple regarder dans le fichier `ReceiptTest.php` la méthode : `t
 ## Ajouter le standard Gamzer au check travis
 ## Ajouter les tests unitaires avec coveralls
 ## CodeFactor
+
+## Travis et coveralls
+
+	Error:         No whitelist configured, no code coverage will be generated

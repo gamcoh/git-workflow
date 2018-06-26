@@ -8,11 +8,12 @@ namespace TDD;
 class Receipt
 {
 	/**
-	 * @param array $items  Array of items
-	 * @param float $coupon Coupon
-	 * @return int
+	 * @param array $items  The items
+	 * @param float $coupon The coupon 
+	 * @return float
 	 */
-	public function total(array $items=[], $coupon=0.0) {
+	public function total(array $items=[], $coupon=0.0)
+	{
 		$sum = array_sum($items);
 		if (!is_null($sum)) {
 			return $sum - ($sum * $coupon);
@@ -21,19 +22,19 @@ class Receipt
 	}
 
 	/**
-	 * @param double $amount the amount of item
-	 * @param double $tax    the taxs
-	 * @return double
+	 * @param float $amount The amount
+	 * @param float $tax    The tax
+	 * @return float
 	 */
 	public function tax($amount, $tax)
-	{ 
+	{
 		return $amount * $tax;
 	}
 
 	/**
-	 * @param array $items  osef
-	 * @param float $tax    osef
-	 * @param float $coupon osef
+	 * @param array $items  The items
+	 * @param float $tax    The tax
+	 * @param float $coupon The coupon
 	 * @return float
 	 */
 	public function postTaxTotal($items, $tax, $coupon)
