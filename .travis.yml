@@ -8,7 +8,7 @@ before_install:
   - composer install
   - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git /tmp/phpcs
   - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
-  - /tmp/phpcs/bin/phpcs --config-set installed_path /tmp/phpcs/src/Standards/Generic,/tmp/phpcs/src/Standards/PSR2,/tmp/phpcs/src/Standards/Squiz,/tmp/phpcs/src/Standards/Zend,/tmp/Gamzer-PHP-Standard/Gamzer,/tmp/Gamzer-PHP-Standard/Gamzerpear
+  - /tmp/phpcs/bin/phpcs --config-set installed_path /tmp/Gamzer-PHP-Standard/Gamzerpear
 
 script:
   - ./vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
