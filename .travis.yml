@@ -6,7 +6,7 @@ php:
 before_install:
   - composer require php-coveralls/php-coveralls '~1.0'
   - composer install --dev
-  - git clone -b https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
+  - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
   - ./vendor/bin/phpcs --config-set installed_path /tmp/Gamzer-PHP-Standard/Gamzer,/tmp/Gamzer-PHP-Standard/Gamzerpear
 
 script:
