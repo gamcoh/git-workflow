@@ -15,7 +15,8 @@ class ReceiptTest extends TestCase
 	/**
 	 * @return void
 	 */
-	public function setUp() {
+	public function setUp()
+	{
 		$this->Receipt = new Receipt();
 	}
 
