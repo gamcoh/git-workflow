@@ -11,6 +11,7 @@ before_install:
   - /tmp/phpcs/bin/phpcs --config-set installed_path /tmp/Gamzer-PHP-Standard/Gamzerpear
 
 script:
+  - /tmp/phpcs/bin/phpcs -i
   - ./vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
   - /tmp/phpcs/bin/phpcs . --standard=./phpcs.xml
 
