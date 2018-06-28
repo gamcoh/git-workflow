@@ -131,8 +131,14 @@ Si par exemple, je veux tester la méthode `update` de mon model principal mais 
 Pour voir un exemple regarder dans le fichier `ReceiptTest.php` la méthode : `testPostTaxTotal`.
 
 ## Ajouter le standard Gamzer au check travis
-## Ajouter les tests unitaires avec coveralls
+Pour utiliser un standard custom avec travis il suffit le configurer avec phpcs :
+
+	phpcs --config-set installed_paths /path/to/custom/standard
+
+Pour voir un exemple, regarder dans la conf de travis : `.travis.yml`
+
 ## CodeFactor
+CodeFactor est vraiment très simple. Il suffit juste de lier son compte avec un de ses projet github et d'ajouter ou d'enlever les fonctionalitées de check proposer par CodeFactor.
 
 ## Travis et coveralls
 
