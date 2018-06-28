@@ -9,7 +9,7 @@ before_install:
   - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
   - /tmp/phpcs/bin/phpcs --config-set installed_paths /tmp/Gamzer-PHP-Standard/
 
-before_script: 
+before_script:
   - mkdir -p tests/logs
 
 script:
