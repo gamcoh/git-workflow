@@ -9,9 +9,11 @@ before_install:
   - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git /tmp/phpcs
   - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
   - /tmp/phpcs/bin/phpcs --config-set installed_paths /tmp/Gamzer-PHP-Standard/
+  - wget -c -nc --retry-connrefused --tries=0 https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar -O coveralls.phar
+  - chmod +x coveralls.phar
+  - php coveralls.phar --version
 
 script:
-  - /tmp/phpcs/bin/phpcs -i
   - ./vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
   - /tmp/phpcs/bin/phpcs . --standard=./phpcs.xml
 
