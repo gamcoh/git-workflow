@@ -3,7 +3,7 @@
 # Documention
 
 ## Commits
-Les commit doivent être fait de manière conventionelle
+Les commits doivent être fait de manière conventionelle
 
 	<type de tâche>(<périmètre>): message court
 
