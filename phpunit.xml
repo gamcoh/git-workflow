@@ -16,10 +16,14 @@
 	</testsuites>
 
 	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
+		<whitelist addUncoveredFilesFromWhitelist="true">
 			<directory>vendor</directory>
 		</whitelist>
 	</filter>
+
+	<logging>
+    <log type="coverage-clover" target="tests/logs/clover.xml"/>
+	</logging>
 	
 	<!-- CODE COVERAGE -->
 	<!-- <logging>
