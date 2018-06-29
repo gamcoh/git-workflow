@@ -141,5 +141,26 @@ Pour voir un exemple, regarder dans la conf de travis : `.travis.yml`
 CodeFactor est vraiment très simple. Il suffit juste de lier son compte avec un de ses projet github et d'ajouter ou d'enlever les fonctionalitées de check proposer par CodeFactor.
 
 ## Travis et coveralls
+Pour ajouter Coveralls à travis il faut d'abord se créer un compte et le lier à notre repository github.
+Il faut ensuite ajouter à la racine de notre projet un fichier `.coveralls.yml` avec à l'interieur les propriétées et les valeur qu'il y a par exemple dans ce projet ci.
 
-	Error:         No whitelist configured, no code coverage will be generated
+### PHP
+Pour utiliser coveralls avec PHP (PHPUnit) il faut rajouter à la racine de notre projet un  fichier `phpunit.xml` avec les propriétées et les valeurs qu'il y à dans ce projet.
+La valeur des deux propriétées `directory` dans `testsuite` et `whitelist` correspond au dossier qui va être testé par PHPUnit et envoyer à Coveralls.
+
+Dans le fichier `.travis.yml` il faut ajouter les lignes ci-dessous :
+
+	before_install:
+		- export CI_BUILD_NUMBER="$TRAVIS_BUILD_NUMBER"
+		- export CI_PULL_REQUEST="$TRAVIS_PULL_REQUEST"
+		- export CI_BRANCH="$TRAVIS_BRANCH"
+		- composer require php-coveralls/php-coveralls '^2.1'
+
+	before_script:
+		- mkdir -p tests/logs
+		
+	script:
+		- ./vendor/bin/phpunit -c ./ --coverage-text --coverage-clover tests/logs/clover.xml
+
+	after_script:
+		- php ./vendor/bin/php-coveralls -v

@@ -21,7 +21,6 @@ script:
   - /tmp/phpcs/bin/phpcs . --standard=./phpcs.xml
 
 after_script:
-  - ls -lah ./vendor/bin/
   - php ./vendor/bin/php-coveralls -v
 
 matrix:
