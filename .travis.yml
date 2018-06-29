@@ -4,15 +4,16 @@ php:
   - 7.2
 
 before_install:
-  - composer require php-coveralls/php-coveralls '~1.0'
   - composer install
   - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git /tmp/phpcs
   - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
   - /tmp/phpcs/bin/phpcs --config-set installed_paths /tmp/Gamzer-PHP-Standard/
 
+before_script:
+  - mkdir -p tests/logs
+
 script:
-  - /tmp/phpcs/bin/phpcs -i
-  - ./vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
+  - ./vendor/bin/phpunit -c ./ --coverage-text --coverage-clover tests/logs/clover.xml
   - /tmp/phpcs/bin/phpcs . --standard=./phpcs.xml
 
 after_script:
