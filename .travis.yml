@@ -4,7 +4,7 @@ php:
   - 7.2
 
 before_install:
-  - composer require satooshi/php-coveralls
+  - composer require php-coveralls/php-coveralls
   - composer install
   - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git /tmp/phpcs
   - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
