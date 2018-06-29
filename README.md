@@ -177,3 +177,36 @@ Dans le fichier `.travis.yml` il faut ajouter les lignes ci-dessous :
 
 
 ## Travis et JSHint
+### Installation
+
+NPM est requis pour installer jshint soit :
+- De manière global :
+
+		npm install -g jshint
+
+- Dans mon environement :
+
+		npm install --save-dev jshint
+
+Pour installer JSHint sur un IDE regardez ces liens :
+-	Sublime https://github.com/victorporof/Sublime-JSHint
+- VS Code https://github.com/jamietre/SharpLinter
+
+### Utilisation
+Une fois que vos javascript réalisés testez les avec la commande `jshint`
+
+	jshint file/directory
+
+Vous pouvez aussi créer un fichier de configuration avec des options avancées.
+Pour voir la liste des options et comment les utiliser rendez-vous sur la documentation : http://jshint.com/docs/cli/.
+
+### Intégration à Travis
+Pour utiliser jshint avec travis, ajoutez ces commandes dans le fichier `.travis.yml` :
+
+	before_install:
+		- ...
+		- npm install -g jshint
+
+	script:
+		- ...
+		- jshint file/directory --config /path/to/config.json
