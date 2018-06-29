@@ -17,7 +17,7 @@
 
 	<filter>
 		<whitelist addUncoveredFilesFromWhitelist="true">
-			<directory>vendor</directory>
+			<directory>tests</directory>
 		</whitelist>
 	</filter>
 
