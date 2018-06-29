@@ -12,6 +12,7 @@ before_install:
   - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git /tmp/phpcs
   - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
   - /tmp/phpcs/bin/phpcs --config-set installed_paths /tmp/Gamzer-PHP-Standard/
+  - npm install -g jshint
 
 before_script:
   - mkdir -p tests/logs
@@ -19,6 +20,7 @@ before_script:
 script:
   - ./vendor/bin/phpunit -c ./ --coverage-text --coverage-clover tests/logs/clover.xml
   - /tmp/phpcs/bin/phpcs . --standard=./phpcs.xml
+  - jshint test.js
 
 after_script:
   - php ./vendor/bin/php-coveralls -v
