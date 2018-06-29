@@ -3,7 +3,7 @@
 # Documention
 
 ## Commits
-Les commit doivent être fait de manière conventionel
+Les commit doivent être fait de manière conventionelle
 
 	<type de tâche>(<périmètre>): message court
 
@@ -22,6 +22,7 @@ Les types de tâches sont :
 - chore : les changement concernant les outils tiers (librairie, extension, composer, npm, etc)
 - build : les changement qui affecte les fichiers de configuration comme npm, gulp, webpack, etc
 - revert : inverser un précendant commit
+- ci : les changement de fichiers de conf tel que Travis, Coveralls, etc
 
 ### Installer Commitizen pour commiter directement avec les conventions
 
@@ -49,28 +50,28 @@ Pour utiliser Commitizen avec VS Code téléchargez cette extension : https://gi
 
 ## Créer une méthode agile sur GITHUB pour travailler avec un système de ticket
 
-Une fois votre projet créer sur github aller dans la rubrique "Projects" et ajoutez un nouveau projet.
+Une fois votre projet créé sur github aller dans la rubrique "Projects" et ajoutez un nouveau projet.
 Il y a plusieurs choix de template le meilleur selon moi est "Automated kanban template". Il permet d'automatiser les colones de manière à ce que les issues se trouvent dans la colone TO DO par exemple.
 
 ## Travailler sur un nouveau ticket
 ### 1. Création du ticket
-Pour créer un ticket il suffit de créer un nouvel issue dans l'onglet ISSUES et y ajouter des options : 
+Pour créer un ticket il suffit de créer une nouvelle issue dans l'onglet ISSUES et y ajouter des options : 
 
 - Assigner un collaborateur pour qu'il travail dessus
 - Ajouter un titre (forcément 🤓)
-- Ajouter des labels (demande de features, fix, doc)
+- Ajouter des labels (demande de features, fix, doc, etc)
 - Lier à un projet
 
 Si vous avez bien configurer votre projet ce ticket s'ajoutera directement dans les TODO.
 
-Une fois la TODO créer, créer une nouvelle branch pour coder dessus.
+Une fois la TODO créé, créer une nouvelle branch pour coder dessus.
 La nomenclature de la branch doit être écrite de cette manière :
 `<contexte>/<issueId>-<fonction>`, exemple : `feat/4-login`
 
 Une fois le ticket términé, le commiter à l'aide de Commitizen sur cette nouvelle branch, puis faire une pull request sur la branch principal voulus.
 
 ## Travis !
-Pour automatiser les push et pull requests, nous allons utiliser Travis qui, à chaque request va faire des test automatique pour verifier differents niveaux de code.
+Pour automatiser les push et pull requests, nous allons utiliser Travis CI qui, à chaque request va faire des test automatique pour verifier differents niveaux de code.
 
 ### 1. Créer l'environement
 Pour commencer créer une nouvelle branch pour la feature que vous développer
@@ -93,7 +94,7 @@ Ce pattern est appelé le "TDD Pattern", le voici :
 
 ### Installation
 
-Pour installer PHPUnit il faut avoir les extensions : 
+Pour installer PHPUnit il faut avoir les extensions suivantes : 
 - DOM
 - JSON
 - PCRE
@@ -111,11 +112,11 @@ Pour tester si tout c'est bien passé, lancer la commande : `vendor/bin/phpunit 
 Pour créer un premier test, il suffit de créer le dossier `tests` à la racine de notre projet puis utiliser la même architecture que notre application.
 Si j'ai une class ayant cette architecture : `src/lib/Model.class.php` alors dans mon dossier `tests` j'aurai `src/lib/ModelTest.class.php`.
 
-Pour regarder un exemple de test unitaire, ouvrez le fichier `tests/ReceiptTest.php`. À l'intérieur vous y trouverai les dépendances ansi que les tests PHP effectuer et la manière de les executer.
+Pour voir un exemple de test unitaire, ouvrez le fichier `tests/ReceiptTest.php`. À l'intérieur vous y trouverai les dépendances ansi que les tests PHP effectuer et la manière de les executer.
 
-Une fois que les tests ont été coder, il faut demander à PHPUnit de les lancer. Pour ce faire, utiliser votre terminal et lancer la commande : `vendor/bin/phpunit tests` où `tests` est le dossier où le code a été effectuer.
-Si nous voulons lancer des tests spécifique il suffit de rajouter l'option filter dans la commande : `vendor/bin/phpunit tests --filter=ReceiptTest::testTax`.
-De cette manière seulement la méthode `testTax` de la class `ReceiptTest` sera executé.
+Une fois que les tests ont été coder, il faut demander à PHPUnit de les lancer. Pour ce faire, utiliser votre terminal et lancer la commande : `vendor/bin/phpunit tests` où `tests` est le dossier où le code a été effectué.
+Si nous voulons lancer des tests spécifiques il suffit de rajouter l'option filter dans la commande : `vendor/bin/phpunit tests --filter=ReceiptTest::testTax`.
+De cette manière seulement la méthode `testTax` de la class `ReceiptTest` sera executée.
 
 Pour créer une architecture de tests plus propre, il est conseiller de créer un fichier `phpunit.xml` de cette façon, une fois la commande lancer seul les filtres demandés dans ce fichier seront lancer.
 Pour l'exemple regarder ce même fichier à la racine.
@@ -127,7 +128,7 @@ Pour ceux qui travaillent sur Sublime, testez cette extension : https://github.c
 ### Test Double
 ## Mock
 Un Mock est un système de "test double" qui permet de modifier certaines méthodes avant d'en tester une. En effet, parfois certaines fonctions doivent être tester en modifier le retour d'autres méthodes.
-Si par exemple, je veux tester la méthode `update` de mon model principal mais que à l'interieur de celle-ci se trouve d'autres méthodes qui check la cohérence des champs de mon entitée (comme la date de création, email, etc), pour faire en sorte de ne pas avoir de failure de test lier à d'autre fonction, grace au Mock je vais dire que pour ce test, les methodes de check appeller dans `update` vont retourner automatiquement `true` de manière à ce que je teste que le retour de ma méthode `update`.
+Si par exemple, je veux tester la méthode `update` de mon model principal mais qu'à l'interieur de celle-ci se trouve d'autres méthodes qui check la cohérence des champs de mon entitée (comme la date de création, email, etc), pour faire en sorte de ne pas avoir de failure de test lier à d'autre fonction, grace au Mock je vais dire que pour ce test, les methodes de check appeller dans `update` vont retourner automatiquement `true` de manière à ce que je teste que le retour de ma méthode `update`.
 Pour voir un exemple regarder dans le fichier `ReceiptTest.php` la méthode : `testPostTaxTotal`.
 
 ## Ajouter le standard Gamzer au check travis
@@ -141,26 +142,38 @@ Pour voir un exemple, regarder dans la conf de travis : `.travis.yml`
 CodeFactor est vraiment très simple. Il suffit juste de lier son compte avec un de ses projet github et d'ajouter ou d'enlever les fonctionalitées de check proposer par CodeFactor.
 
 ## Travis et coveralls
-Pour ajouter Coveralls à travis il faut d'abord se créer un compte et le lier à notre repository github.
+Pour ajouter Coveralls à Travis il faut d'abord se créer un compte et le lier à notre repository github.
 Il faut ensuite ajouter à la racine de notre projet un fichier `.coveralls.yml` avec à l'interieur les propriétées et les valeur qu'il y a par exemple dans ce projet ci.
 
 ### PHP
-Pour utiliser coveralls avec PHP (PHPUnit) il faut rajouter à la racine de notre projet un  fichier `phpunit.xml` avec les propriétées et les valeurs qu'il y à dans ce projet.
+Pour utiliser coveralls avec PHP (PHPUnit) il faut rajouter à la racine de notre projet un fichier `phpunit.xml` avec les propriétées et les valeurs qu'il y à dans le fichier de ce projet.
 La valeur des deux propriétées `directory` dans `testsuite` et `whitelist` correspond au dossier qui va être testé par PHPUnit et envoyer à Coveralls.
 
 Dans le fichier `.travis.yml` il faut ajouter les lignes ci-dessous :
 
 	before_install:
+		# Va créer l'environement dont Coveralls à besoin
 		- export CI_BUILD_NUMBER="$TRAVIS_BUILD_NUMBER"
 		- export CI_PULL_REQUEST="$TRAVIS_PULL_REQUEST"
 		- export CI_BRANCH="$TRAVIS_BRANCH"
+		# Va installer Coveralls
 		- composer require php-coveralls/php-coveralls '^2.1'
+		- ...
 
 	before_script:
+		# Création du fichier le log si il n'existe pas
 		- mkdir -p tests/logs
+		- ...
 		
 	script:
+		# Execute les test unitaires en envoyant les resultat dans le fichier de log
 		- ./vendor/bin/phpunit -c ./ --coverage-text --coverage-clover tests/logs/clover.xml
+		- ...
 
 	after_script:
+		# Envois les logs à coveralls.io
 		- php ./vendor/bin/php-coveralls -v
+		- ...
+
+
+## Travis et JSHint
