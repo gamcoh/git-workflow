@@ -4,7 +4,7 @@ php:
   - 7.2
 
 before_install:
-  - composer require php-coveralls/php-coveralls '^2.0'
+  - composer require php-coveralls/php-coveralls '^2.1'
   - composer install
   - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git /tmp/phpcs
   - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
@@ -19,7 +19,7 @@ script:
 
 after_script:
   - ls -lah ./vendor/bin/
-  - php ./vendor/bin/coveralls -v
+  - php ./vendor/bin/php-coveralls -v
 
 matrix:
   fast_finish: true
