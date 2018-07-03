@@ -210,3 +210,15 @@ Pour utiliser jshint avec travis, ajoutez ces commandes dans le fichier `.travis
 	script:
 		- ...
 		- jshint file/directory --config /path/to/config.json
+
+
+## Testes unitaires en JavaScript
+### Jest
+
+Pour les testes unitaire en JavaScript j'utilise Jest qui a été créer par Facebook et est utilisé par beaucoup.
+Une fois vos testes développés grâce à la documentation (https://jestjs.io/docs/en/getting-started.html) ajoutez le script test dans votre fichier `package.json` et lancer le par la ligne de commande
+
+	npm run test
+
+### Avec Travis
+Pour utiliser ces testes unitaires avec Travis il suffit de rajouter l'installation de jest dans `before_install` et de lancer les testes dans `script`.

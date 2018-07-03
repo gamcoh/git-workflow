@@ -1,6 +1,7 @@
-var e = 'foo';
-var a = 'o';
+function sum(a, b) {
+	return a + b;
+}
 
-var res = e.indexOf(a) !== -1;
-
-console.log(res);
+test('Adds 1 + 2 to equal 3', () => {
+	expect(sum(1, 2)).toBe(3);
+});
