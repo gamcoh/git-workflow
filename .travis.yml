@@ -8,10 +8,12 @@ before_install:
   - export CI_PULL_REQUEST="$TRAVIS_PULL_REQUEST"
   - export CI_BRANCH="$TRAVIS_BRANCH"
   - composer require php-coveralls/php-coveralls '^2.1'
-  - composer install
   - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git /tmp/phpcs
   - git clone -b master https://github.com/gamcoh/Gamzer-PHP-Standard.git /tmp/Gamzer-PHP-Standard
   - /tmp/phpcs/bin/phpcs --config-set installed_paths /tmp/Gamzer-PHP-Standard/
+
+install:
+  - composer install
   - npm install -g jshint
   - npm install --save-dev jest
 
