@@ -3,6 +3,7 @@
 	<description>The Gamzer Standard</description>
 
 	<exclude-pattern>./vendor</exclude-pattern>
+	<exclude-pattern>./node_modules</exclude-pattern>
 
 	<rule ref="Generic.Classes.DuplicateClassName"/>
 	<rule ref="Generic.CodeAnalysis.EmptyStatement"/>
