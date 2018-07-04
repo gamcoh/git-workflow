@@ -224,4 +224,10 @@ Une fois vos testes développés grâce à la documentation (https://jestjs.io/d
 Pour utiliser ces testes unitaires avec Travis il suffit de rajouter l'installation de jest dans `install` et de lancer les testes dans `script`.
 
 ### Avec Coveralls
+Il suffit de lancer la commande avec l'option coverage : 
 
+	npm run test --coverage && node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
+
+En ayant au préalable installer coveralls avec npm : 
+
+	npm install --save-dev coveralls

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "node ./node_modules/.bin/jest --coverage && cat ./coverage/lcov.info |./node_modules/coveralls/bin/coveralls.js"
+    "test": "jest"
   },
   "devDependencies": {
     "coveralls": "^3.0.2"

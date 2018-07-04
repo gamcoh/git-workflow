@@ -25,9 +25,8 @@ script:
   - ./vendor/bin/phpunit -c ./ --coverage-text --coverage-clover tests/logs/clover.xml
   - /tmp/phpcs/bin/phpcs . --standard=./phpcs.xml
   - jshint test.js
-  - ls node_modules
-  - ls node_modules/coveralls
-  - npm run test
+  - npm run test --coverage
+  - cat coverage/lcov.info
 
 after_script:
   - php ./vendor/bin/php-coveralls -v

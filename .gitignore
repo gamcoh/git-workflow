@@ -3,3 +3,4 @@ node_modules
 jest_*
 coverage
 .vscode
+npm-debug.log
