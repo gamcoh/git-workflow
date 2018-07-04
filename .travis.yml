@@ -16,6 +16,7 @@ install:
   - composer install
   - npm install -g jshint
   - npm install --save-dev jest
+  - npm install --save-dev coveralls
 
 before_script:
   - mkdir -p tests/logs

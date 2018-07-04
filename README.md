@@ -222,3 +222,6 @@ Une fois vos testes développés grâce à la documentation (https://jestjs.io/d
 
 ### Avec Travis
 Pour utiliser ces testes unitaires avec Travis il suffit de rajouter l'installation de jest dans `install` et de lancer les testes dans `script`.
+
+### Avec Coveralls
+

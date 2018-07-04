@@ -1,5 +1,8 @@
 {
-	"scripts": {
-		"test": "jest"
-	}
+  "scripts": {
+    "test": "node ./node_modules/.bin/jest --coverage && cat ./coverage/lcov.info | ./node_moules/coveralls/bin/coveralls.js"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2"
+  }
 }
