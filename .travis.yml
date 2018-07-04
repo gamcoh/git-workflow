@@ -26,7 +26,6 @@ script:
   - /tmp/phpcs/bin/phpcs . --standard=./phpcs.xml
   - jshint test.js
   - npm run test --coverage
-  - cat coverage/lcov.info
 
 after_script:
   - php ./vendor/bin/php-coveralls -v
